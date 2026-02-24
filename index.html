@@ -31,12 +31,22 @@ content="width=device-width, initial-scale=1.0, user-scalable=no">
 </style>
 </head>
 <body>
-<canvas id="gameCanvas" width="360" height="700"></canvas>
+<canvas id="game"></canvas>
 <div class="fireBtn" id="fireBtn"></div>
 
 <script>
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+<script>
 let highScore = localStorage.getItem("spaceInvadersHighScore")
   ? parseInt(localStorage.getItem("spaceInvadersHighScore"))
   : 0;
@@ -1134,4 +1144,5 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 </body>
+
 </html>
